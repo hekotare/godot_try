@@ -1,0 +1,109 @@
+[gd_scene load_steps=8 format=3 uid="uid://ce6eyys6v2osx"]
+
+[ext_resource type="Texture2D" uid="uid://cm3kuukd8vujq" path="res://world/seigaiha.png" id="1_exsew"]
+[ext_resource type="PackedScene" uid="uid://c77jsvm1t65sw" path="res://world/chr.tscn" id="1_ggh7n"]
+[ext_resource type="PackedScene" uid="uid://0pkt4vy2f4y6" path="res://world/chr2.tscn" id="2_qdxlx"]
+[ext_resource type="Texture2D" uid="uid://de7f73th3ylg3" path="res://world/yagasuri.png" id="4_ytyln"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l8omv"]
+size = Vector2(125, 997.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5n2js"]
+size = Vector2(3242, 175)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p0xaw"]
+size = Vector2(220, 906)
+
+[node name="Ｗorld" type="Node2D"]
+
+[node name="Camera" type="Camera2D" parent="."]
+
+[node name="background" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0.509804)
+offset_right = 2932.0
+offset_bottom = 894.0
+texture = ExtResource("1_exsew")
+stretch_mode = 1
+
+[node name="Player1" parent="." instance=ExtResource("1_ggh7n")]
+position = Vector2(572, 372)
+scale = Vector2(0.25, 0.25)
+
+[node name="Player2" parent="." instance=ExtResource("2_qdxlx")]
+position = Vector2(953, 378)
+scale = Vector2(0.25, 0.25)
+player_id = 2
+dir = 0
+
+[node name="walls" type="Node2D" parent="."]
+
+[node name="wall1" type="StaticBody2D" parent="walls"]
+
+[node name="TextureRect" type="TextureRect" parent="walls/wall1"]
+offset_left = -122.0
+offset_right = -4.0
+offset_bottom = 999.0
+texture = ExtResource("4_ytyln")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="walls/wall1"]
+visible = false
+position = Vector2(-65, 495.25)
+shape = SubResource("RectangleShape2D_l8omv")
+
+[node name="wall2" type="StaticBody2D" parent="walls"]
+
+[node name="TextureRect" type="TextureRect" parent="walls/wall2"]
+offset_top = 892.0
+offset_right = 3236.0
+offset_bottom = 1076.0
+texture = ExtResource("4_ytyln")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="walls/wall2"]
+visible = false
+position = Vector2(1621, 980)
+shape = SubResource("RectangleShape2D_5n2js")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[node name="wall3" type="StaticBody2D" parent="walls"]
+
+[node name="TextureRect" type="TextureRect" parent="walls/wall3"]
+offset_left = 2936.0
+offset_right = 3156.0
+offset_bottom = 896.0
+texture = ExtResource("4_ytyln")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="walls/wall3"]
+visible = false
+position = Vector2(3041, 442)
+shape = SubResource("RectangleShape2D_p0xaw")
+
+[node name="Polygon1" type="StaticBody2D" parent="walls"]
+
+[node name="graphics" type="Polygon2D" parent="walls/Polygon1"]
+texture_repeat = 2
+position = Vector2(2346, 331)
+texture = ExtResource("4_ytyln")
+polygon = PackedVector2Array(-136, -48, 294, -50, 294, 25, -241, 29)
+
+[node name="collision" type="CollisionPolygon2D" parent="walls/Polygon1"]
+position = Vector2(2347, 331)
+polygon = PackedVector2Array(-136, -48, 294, -50, 294, 25, -241, 29)
+
+[node name="Polygon2" type="StaticBody2D" parent="walls"]
+
+[node name="graphics" type="Polygon2D" parent="walls/Polygon2"]
+texture_repeat = 2
+position = Vector2(1341, 575)
+texture = ExtResource("4_ytyln")
+polygon = PackedVector2Array(-106, -62, -208, -28, -216, 63, 335, 71, 327, -30, 157, -76)
+
+[node name="collision" type="CollisionPolygon2D" parent="walls/Polygon2"]
+visible = false
+position = Vector2(1341, 575)
+polygon = PackedVector2Array(-106, -62, -208, -28, -216, 63, 335, 71, 327, -30, 157, -76)

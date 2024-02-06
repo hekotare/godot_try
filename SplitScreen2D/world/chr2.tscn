@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://0pkt4vy2f4y6"]
+
+[ext_resource type="PackedScene" uid="uid://c77jsvm1t65sw" path="res://world/chr.tscn" id="1_whlvr"]
+[ext_resource type="Texture2D" uid="uid://bn0p1680rn208" path="res://icon.svg" id="2_go341"]
+
+[node name="chr" instance=ExtResource("1_whlvr")]
+
+[node name="Head" parent="Pivot/Torso" index="0"]
+scale = Vector2(3.6, 3.6)
+texture = ExtResource("2_go341")
+offset = Vector2(0, -50)
+region_rect = Rect2(16.326, 18.466, 95, 93)
