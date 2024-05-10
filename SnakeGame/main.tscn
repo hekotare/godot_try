@@ -1,0 +1,26 @@
+[gd_scene load_steps=7 format=3 uid="uid://d2vw4iy2j7yme"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_k7jgc"]
+[ext_resource type="Script" path="res://soundplayer.gd" id="3_7f4sm"]
+[ext_resource type="PackedScene" uid="uid://dsoha2oddg318" path="res://state/playing.tscn" id="3_10nxp"]
+[ext_resource type="Script" path="res://lib/fsm.gd" id="3_aeyx3"]
+[ext_resource type="PackedScene" uid="uid://cryyvfut8f577" path="res://state/startmenu.tscn" id="4_w64lc"]
+[ext_resource type="PackedScene" uid="uid://bmrlh5kwryhx2" path="res://state/gameover.tscn" id="6_4pode"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_k7jgc")
+
+[node name="SoundPlayer" type="AudioStreamPlayer2D" parent="."]
+script = ExtResource("3_7f4sm")
+
+[node name="fsm" type="Node" parent="."]
+script = ExtResource("3_aeyx3")
+initial_state = NodePath("StartMenu")
+
+[node name="StartMenu" parent="fsm" instance=ExtResource("4_w64lc")]
+
+[node name="Playing" parent="fsm" instance=ExtResource("3_10nxp")]
+
+[node name="GameOver" parent="fsm" instance=ExtResource("6_4pode")]
+
+[connection signal="translated" from="fsm" to="." method="_on_fsm_translated"]

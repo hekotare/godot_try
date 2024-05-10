@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://cka5v7twsd2gv"]
+
+[ext_resource type="Script" path="res://entity/tile.gd" id="1_m8f7u"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jbscc"]
+size = Vector2(64, 64)
+
+[node name="tile" type="Area2D"]
+script = ExtResource("1_m8f7u")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(32, 32)
+shape = SubResource("RectangleShape2D_jbscc")

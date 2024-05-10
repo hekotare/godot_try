@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://cryyvfut8f577"]
+
+[ext_resource type="Script" path="res://state/startmenu.gd" id="1_ujjbo"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_eg5eg"]
+font_size = 76
+outline_size = 35
+outline_color = Color(0, 0, 0, 1)
+
+[node name="StartMenu" type="Node"]
+script = ExtResource("1_ujjbo")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 101.0
+offset_top = 227.0
+offset_right = 674.0
+offset_bottom = 388.0
+text = "クリックしたらStart"
+label_settings = SubResource("LabelSettings_eg5eg")
