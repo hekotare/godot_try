@@ -35,7 +35,6 @@ func _handles(object):
 
 func _edit(object):
 	current_object = object as AABB2D
-	print(current_object)
 
 
 func _forward_canvas_draw_over_viewport(viewport_control):

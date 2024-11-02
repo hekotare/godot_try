@@ -7,6 +7,6 @@
 [node name="AABB2D" type="Node2D" parent="."]
 script = ExtResource("1_vl3og")
 grid_size = 20
-right = 20
-bottom = 20
-rect = Rect2(0, 0, 20, 20)
+right = 280
+bottom = 180
+rect = Rect2(0, 0, 280, 180)
